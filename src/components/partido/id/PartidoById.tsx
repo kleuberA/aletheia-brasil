@@ -30,6 +30,10 @@ export default function PartidoById({ id }: PartidoByIdProps) {
         </section>
     )
 
+    let idDeputado = data.dados.status.lider.uri.split('/').pop();
+    let idLegislatura = data.dados.status.idLegislatura;
+    let sigla = data.dados.sigla;
+
     return (
         <section className="w-full min-h-[calc(100dvh_-_5rem)]">
             <div className="w-[80dvw] mx-auto h-full p-5">
@@ -45,7 +49,7 @@ export default function PartidoById({ id }: PartidoByIdProps) {
                             <p className="font-mono font-semibold">Situação: {data.dados.status.situacao}</p>
                             <p className="font-mono font-semibold">Total de membros: {data.dados.status.totalMembros}</p>
                             <p className="font-mono font-semibold">Total de posse: {data.dados.status.totalPosse}</p>
-                            <Link href={``} className="w-32">
+                            <Link href={`/partido/membros/${idLegislatura}/${sigla}`} className="w-32">
                                 <Button variant="outline">Ver Membros</Button>
                             </Link>
                         </div>
@@ -55,6 +59,9 @@ export default function PartidoById({ id }: PartidoByIdProps) {
                                 <p className="font-mono font-semibold">Lider: {data.dados.status.lider.nome}</p>
                                 <p className="font-mono font-semibold">UF: {data.dados.status.lider.uf}</p>
                                 <p className="font-mono font-semibold">Partido: {data.dados.status.lider.siglaPartido}</p>
+                                <Link href={`/deputado/${idDeputado}`} >
+                                    <Button variant="outline">Ver Informações Presidente</Button>
+                                </Link>
                             </div>
                         </div>
                     </div>
