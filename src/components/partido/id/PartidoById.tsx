@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PartidoByIdProps {
@@ -54,7 +55,7 @@ export default function PartidoById({ id }: PartidoByIdProps) {
                             </Link>
                         </div>
                         <div className="border border-border p-2 rounded-sm w-full flex flex-row gap-2">
-                            <img src={data.dados.status.lider.urlFoto} />
+                            <Image width={100} height={100} src={data.dados.status.lider.urlFoto} alt={""} />
                             <div>
                                 <p className="font-mono font-semibold">Lider: {data.dados.status.lider.nome}</p>
                                 <p className="font-mono font-semibold">UF: {data.dados.status.lider.uf}</p>
